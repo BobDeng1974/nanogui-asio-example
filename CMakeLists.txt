@@ -21,14 +21,14 @@ SET ( CMAKE_C_FLAGS_RELEASE "-static" )
 
 set( THIRD_PARTY_DIR ${CMAKE_CURRENT_BINARY_DIR}/third_party )
 
-#ExternalProject_Add( nanogui
-        #PREFIX third_party_src/nanogui
-        #INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/third_party/nanogui
-        #GIT_REPOSITORY https://github.com/wjakob/nanogui.git
-        #BUILD_IN_SOURCE 1 
-        #CONFIGURE_COMMAND cmake -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR> -DNANOGUI_BUILD_SHARED=NO -DNANOGUI_BUILD_EXAMPLE=NO
-        #INSTALL_COMMAND make install
-        #)
+ExternalProject_Add( nanogui
+        PREFIX third_party_src/nanogui
+        INSTALL_DIR ${CMAKE_CURRENT_BINARY_DIR}/third_party/nanogui
+        GIT_REPOSITORY https://github.com/wjakob/nanogui.git
+        BUILD_IN_SOURCE 1 
+        CONFIGURE_COMMAND cmake -DCMAKE_INSTALL_PREFIX=<INSTALL_DIR> -DNANOGUI_BUILD_SHARED=NO -DNANOGUI_BUILD_EXAMPLE=NO
+        INSTALL_COMMAND make install
+        )
 
 
 ExternalProject_Add( boost
